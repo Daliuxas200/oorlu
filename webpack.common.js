@@ -44,7 +44,10 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css',
         }),
-        new HtmlWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            title:'Oor.lu',
+            template:'./src/index.html'
+        }),
         new CleanWebpackPlugin(),
     ],
 };
