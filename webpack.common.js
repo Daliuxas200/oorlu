@@ -5,6 +5,7 @@ const {
     CleanWebpackPlugin
 } = require('clean-webpack-plugin');
 const autoprefixer = require('autoprefixer');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 module.exports = {
     entry: './src/index.js',
@@ -38,6 +39,31 @@ module.exports = {
                     },
                 },
             },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: [{
+                        loader: 'file-loader',
+                        options: {
+                            outputPath: 'images',
+                        }
+                    },
+                    {
+                        loader: 'image-webpack-loader',
+                        options: {
+                            bypassOnDebug: true, // webpack@1.x
+                            disable: true, // webpack@2.x and newer
+                        },
+                    },
+                ],
+
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                loader: 'file-loader',
+                options: {
+                    outputPath: 'fonts',
+                }
+            },
         ],
     },
     plugins: [
@@ -45,9 +71,19 @@ module.exports = {
             filename: '[name].[contenthash].css',
         }),
         new HtmlWebpackPlugin({
-            title:'Oor.lu',
-            template:'./src/index.html'
+            title: 'Oor.lu',
+            template: './src/index.html',
+            meta: {
+                'viewport': 'width=device-width, initial-scale=1, shrink-to-fit=no',
+                'theme-color': '#ffd571',
+                'description': 'A light and fun app for shortening urls',
+                'application-name': 'Oor.lu'
+            }
         }),
         new CleanWebpackPlugin(),
+        new FaviconsWebpackPlugin({
+            logo: './src/images/oorlu.png',
+            outputPath: '/favicon',
+        })
     ],
 };
