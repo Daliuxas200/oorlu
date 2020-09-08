@@ -1,0 +1,17 @@
+$bp-large: 1600px;
+$bp-small: 550px;
+
+@mixin respond-to($breakpoint) {
+    @media (max-width: $breakpoint) {
+        @content;
+    }
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 75%; // 1rem 12px
+  
+    @include respond-to($bp-large){
+      font-size: 62.5%; // 1rem 10px
+    }
+  }

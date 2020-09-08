@@ -42,5 +42,8 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ]
+  ],
+  "dependencies": {
+    "pace": "0.0.4"
+  }
 }

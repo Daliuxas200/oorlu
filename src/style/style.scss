@@ -1,34 +1,206 @@
 @import 'colors';
 @import 'reset';
 @import 'fonts';
+@import 'responsive';
 
 body {
   background-color: $primary;
-  font-family: 'PT mono';
+  font-family: 'PT mono', 'monospace';
 }
 
-.page{
-  display: flex;
+.page {
+  display: grid;
+  grid-template-columns: [full-start] 1fr [content-start] minmax(30rem, 55rem) [content-end] 1fr [full-end];
+  grid-template-rows: [full-start] 1fr [content-start] min-content [content-end] 1.5fr [footer-separator] min-content [full-end];
   width: 100vw;
   height: 100vh;
   justify-content: center;
   align-items: center;
 }
 
-.center-content{
-  max-width: 400px;
+.main {
+  grid-row: content-start / content-end;
+  grid-column: content-start / content-end;
+
+  &__logo {
+    display: block;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    animation: entry-slide-right 1s ease-out;
+  }
+
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    justify-content: center;
+    font-size: 1.6rem;
+    letter-spacing: 0.2rem;
+    animation: entry-slide-left 1s ease-out;
+  }
+
+  &__url-input,
+  &__button {
+    font-size: inherit;
+    letter-spacing: inherit;
+    border-radius: 4rem;
+    height: 4rem;
+    @include respond-to($bp-small){
+      margin: 0 2rem;
+    }
+  }
+
+  &__url-input {
+    padding: 0 13rem 0 2rem;
+    border: none;
+    box-sizing: border-box;
+    color: $dark;
+    width: 100%;
+    display: block;
+    &:hover,
+    &:focus {
+      opacity: 0.9;
+    }
+    @include respond-to($bp-small){
+      padding: 0 2rem;
+    }
+  }
+
+  &__button {
+    padding: 0 2.5rem;
+    border: none;
+    background-color: $secondary;
+    position: absolute;
+    right: -1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 1rem $primary solid;
+    box-sizing: content-box;
+    color: rgba($darkest, 0.8);
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    &:hover {
+      opacity: 0.9;
+    }
+
+    @include respond-to($bp-small){
+      margin-top: 2rem;
+      position: relative;
+      transform: translate(0);
+      border: none;
+      right:0;
+      padding: 0 4rem;
+    }
+
+  }
 }
 
-.logo-wrapper{
+.footer {
+  grid-row: footer-separator / full-end;
+  grid-column: content-start / content-end;
+  font-size: 1.6rem;
+  position: relative;
+
+  &__links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__link-text {
+    padding: 1rem;
+    margin: 1rem;
+    cursor: pointer;
+    color: $dark;
+  }
+}
+
+.modal{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%,-100%);
   width: 100%;
-  height: 150px;
-  background: url('../images/oorlu_full.svg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  padding: 2rem;
+  box-shadow: rgba($dark,0.2) 0 0 1rem 0.1rem;
+  border-radius: 0.5rem;
+  z-index: 100;
+  background-color: rgba($primary,0.8);
+  color: $dark;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  &__header{
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba($dark,0.3);
+    margin-bottom: 2rem;
+  }
+
+  &__logo{
+    width: 5rem;
+  }
+
+  &__title{
+    align-self: center;
+  }
+
+  p{
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  a{
+    text-decoration: none;
+    background-color: $secondary;
+    color: $dark;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    display: block;
+    align-self: flex-start;
+    transition: opacity 0.2s;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  a:not(:last-child)
+  ,p:not(:last-child)
+  ,ul:not(:last-child)
+  ,ol:not(:last-child){
+    margin-bottom: 1rem;
+  }
 }
 
-h3{
-  font-size: 20px;
-  font-family: 'PT mono';
+@keyframes entry-slide-right {
+  from {
+    transform: translate(-10%, 0);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes entry-slide-left {
+  from {
+    transform: translate(10%, 0);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
 }
