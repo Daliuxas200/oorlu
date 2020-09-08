@@ -1,4 +1,15 @@
 import './style/style.scss';
-import 'pace';
 
-console.log('bla bla bla bla')
+(()=>{
+    class Modal{
+        constructor(rootSelector){
+            this.rootSelector = rootSelector;
+            this.visible = false;
+        }
+
+        show() {
+            return `${this.name} says hello.`;
+        }
+    }
+})()
+

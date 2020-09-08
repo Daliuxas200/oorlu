@@ -3,6 +3,10 @@
 @import 'fonts';
 @import 'responsive';
 
+*::selection{
+  background: $secondary;
+}
+
 body {
   background-color: $primary;
   font-family: 'PT mono', 'monospace';
@@ -24,11 +28,12 @@ body {
 
   &__logo {
     display: block;
-    width: 100%;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: bottom;
+    width: auto;
+    margin: 0 5rem;
     animation: entry-slide-right 1s ease-out;
+    @include respond-to($bp-small){
+      margin: 0 2rem;
+    }
   }
 
   &__form {
@@ -84,6 +89,8 @@ body {
     transition: opacity 0.2s;
     &:hover {
       opacity: 0.9;
+      color:$darkest;
+
     }
 
     @include respond-to($bp-small){
@@ -101,7 +108,7 @@ body {
 .footer {
   grid-row: footer-separator / full-end;
   grid-column: content-start / content-end;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   position: relative;
 
   &__links {
@@ -115,6 +122,9 @@ body {
     margin: 1rem;
     cursor: pointer;
     color: $dark;
+    &:hover{
+      color:$darkest;
+    }
   }
 }
 
@@ -147,7 +157,7 @@ body {
   }
 
   &__logo{
-    width: 5rem;
+    height: 2rem;
   }
 
   &__title{
@@ -167,9 +177,10 @@ body {
     padding: 0.5rem 1rem;
     display: block;
     align-self: flex-start;
-    transition: opacity 0.2s;
+    transition: 0.2s;
     &:hover {
       opacity: 0.9;
+      color:$darkest;
     }
   }
 
