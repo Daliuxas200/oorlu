@@ -1,15 +1,13 @@
 import './style/style.scss';
+import Modal from './js/modal.js';
 
-(()=>{
-    class Modal{
-        constructor(rootSelector){
-            this.rootSelector = rootSelector;
-            this.visible = false;
-        }
+(() => {
 
-        show() {
-            return `${this.name} says hello.`;
-        }
+    let modals = Array.from(document.querySelectorAll('.modal'));
+    for(let modal of modals){
+        let rootSelector = modal.id.split('-').shift();
+        let modalHandler = new Modal(rootSelector);
+        modalHandler.observe();
     }
-})()
 
+})()

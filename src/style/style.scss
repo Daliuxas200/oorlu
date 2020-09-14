@@ -125,25 +125,39 @@ body {
     &:hover{
       color:$darkest;
     }
+    &::selection{
+      background: transparent;
+    }
   }
 }
 
 .modal{
   position: absolute;
+  display: flex;
   top: 0;
   left: 50%;
-  transform: translate(-50%,-100%);
+  flex-direction: column;
+  flex-wrap: wrap;
   width: 100%;
-  padding: 2rem;
+  padding: 1.8rem 2rem 2rem 2rem;
   box-shadow: rgba($dark,0.2) 0 0 1rem 0.1rem;
   border-radius: 0.5rem;
   z-index: 100;
   background-color: rgba($primary,0.8);
   color: $dark;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  transform-origin: bottom center;
+  transform: translate(-50%,-100%)  scale(0.9);
+  opacity: 0;
+  transition: visibility 0.2s, opacity 0.2s, transform 0.2s;
+  visibility: hidden;
+
+  &.visible{
+    transition: visibility 0s, opacity 0.2s, transform 0.2s;
+    visibility: visible;
+    opacity: 1;
+    transform: translate(-50%,-100%) scale(1);
+  }
 
   &__header{
     flex-grow: 1;
@@ -177,11 +191,13 @@ body {
     padding: 0.5rem 1rem;
     display: block;
     align-self: flex-start;
-    transition: 0.2s;
+    transition: color 0.2s, opacity 0.2s;
+
     &:hover {
       opacity: 0.9;
       color:$darkest;
     }
+    
   }
 
   a:not(:last-child)
