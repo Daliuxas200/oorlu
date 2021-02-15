@@ -8,13 +8,18 @@
 
 <body>
   <div class="page">
-    <main class="main">
+
+    <main class="main" id="main">
       <img src="<%= require('./images/oorlu_full.svg') %>" alt="" class="main__logo">
-      <form action="" class="main__form">
-        <input class="main__url-input" type="url" name="url">
-        <input type="submit" class="main__button" value="submit">
+      <form action="" class="main__form" id="main-form">
+        <span class="main__url-input-wrapper">
+          <input class="main__url-input" type="url" name="url">
+          <div class="main__url-input-cutoff"></div>
+        </span>
+        <input type="submit" class="main__button active" value="submit">
       </form>
     </main>
+
     <footer class="footer">
       <nav>
         <ul class="footer__links">
@@ -26,13 +31,16 @@
           </li>
         </ul>
       </nav>
+
+      <!-- Add as many modals as you want, just add button with matching id, eg. "boop-modal" and "boop-button" -->
       <div class="modal" id="about-modal">
         <div class="modal__header">
           <h4 class="modal__title">About Oor.lu</h4>
           <img src="<%= require('./images/icon_transparent.png') %>" alt="" class="modal__logo">
         </div>
 
-        <p> This is a very very sleek app by Adam and Dalius bla bla bla. This is a very very sleek app by Adam and Dalius bla bla bla.This is a very very sleek app by Adam and Dalius bla bla bla</p>
+        <p> This is a very very sleek app by Adam and Dalius bla bla bla. This is a very very sleek app by Adam and
+          Dalius bla bla bla.This is a very very sleek app by Adam and Dalius bla bla bla</p>
         <p>Wow nice amazing</p>
         <p>beep beep</p>
 
@@ -40,13 +48,15 @@
         <a href="http://oor.lu/" target="_blank">Another link </a>
 
       </div>
+
       <div class="modal" id="more-modal">
         <div class="modal__header">
           <h4 class="modal__title">More amazing info :O</h4>
           <img src="<%= require('./images/icon_transparent.png') %>" alt="" class="modal__logo">
         </div>
 
-        <p> This is another modal with more info wooooooow bla bla.This is a very very sleek app by Adam and Dalius bla bla bla</p>
+        <p> This is another modal with more info wooooooow bla bla.This is a very very sleek app by Adam and Dalius bla
+          bla bla</p>
         <p>Wow nice amazing</p>
         <p>( ͡° ͜ʖ ͡°)</p>
 

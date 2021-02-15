@@ -1,0 +1,77 @@
+.modal{
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 50%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 1.8rem 2rem 2rem 2rem;
+    box-shadow: rgba($dark,0.2) 0 0 1rem 0.1rem;
+    border-radius: 0.5rem;
+    z-index: 100;
+    background-color: rgba($primary,0.8);
+    color: $dark;
+    box-sizing: border-box;
+    transform-origin: bottom center;
+    transform: translate(-50%,-100%)  scale(0.9);
+    opacity: 0;
+    transition: visibility 0.2s, opacity 0.2s, transform 0.2s;
+    visibility: hidden;
+  
+    &.visible{
+      transition: visibility 0s, opacity 0.2s, transform 0.2s;
+      visibility: visible;
+      opacity: 1;
+      transform: translate(-50%,-100%) scale(1);
+    }
+  
+    &__header{
+      flex-grow: 1;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      justify-content: space-between;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba($dark,0.3);
+      margin-bottom: 2rem;
+    }
+  
+    &__logo{
+      height: 2rem;
+    }
+  
+    &__title{
+      align-self: center;
+    }
+  
+    p{
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+  
+    a{
+      text-decoration: none;
+      background-color: $secondary;
+      color: $dark;
+      border-radius: 0.5rem;
+      padding: 0.5rem 1rem;
+      display: block;
+      align-self: flex-start;
+      transition: color 0.2s, opacity 0.2s;
+  
+      &:hover {
+        opacity: 0.9;
+        color:$darkest;
+      }
+      
+    }
+  
+    a:not(:last-child)
+    ,p:not(:last-child)
+    ,ul:not(:last-child)
+    ,ol:not(:last-child){
+      margin-bottom: 1rem;
+    }
+  }
+  

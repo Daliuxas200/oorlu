@@ -1,0 +1,25 @@
+.footer {
+    grid-row: footer-separator / full-end;
+    grid-column: content-start / content-end;
+    font-size: 1.2rem;
+    position: relative;
+  
+    &__links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    &__link-text {
+      padding: 1rem;
+      margin: 1rem;
+      cursor: pointer;
+      color: $dark;
+      &:hover{
+        color:$darkest;
+      }
+      &::selection{
+        background: transparent;
+      }
+    }
+  }
