@@ -80,7 +80,7 @@ module.exports = {
                 'theme-color': '#ffd571',
                 'description': 'A light and fun app for shortening urls',
                 'application-name': 'Oor.lu',
-                'author': 'Adam Wojcak, Dalius Slavickas',
+                'author': 'Adam Wojtczak, Dalius Slavickas',
                 'keywords' : 'url, shortener, JavaScript, HTML, CSS, Python, Django, PostgreSQL, Redis'
             }
         }),
