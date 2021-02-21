@@ -44,7 +44,7 @@ module.exports = {
                 use: [{
                         loader: 'file-loader',
                         options: {
-                            outputPath: 'images',
+                            outputPath: 'static/images',
                             esModule: false
                         }
                     },
@@ -62,7 +62,7 @@ module.exports = {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
                 loader: 'file-loader',
                 options: {
-                    outputPath: 'fonts',
+                    outputPath: 'static/fonts',
                 }
             },
         ],
@@ -85,7 +85,8 @@ module.exports = {
         new CleanWebpackPlugin(),
         new FaviconsWebpackPlugin({
             logo: './src/images/oorlu.png',
-            outputPath: '/favicon',
+            outputPath: 'static/favicon',
+            prefix: 'static/favicon/'
         })
     ],
 };

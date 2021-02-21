@@ -42,5 +42,8 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ]
+  ],
+  "dependencies": {
+    "http-server": "^0.12.3"
+  }
 }
