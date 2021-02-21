@@ -18,6 +18,9 @@
     opacity: 0;
     transition: visibility 0.2s, opacity 0.2s, transform 0.2s;
     visibility: hidden;
+    @include respond-to($bp-small){
+      width: 90%;
+    }
   
     &.visible{
       transition: visibility 0s, opacity 0.2s, transform 0.2s;

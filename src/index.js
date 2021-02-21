@@ -106,7 +106,6 @@ import Modal from './js/modal.js';
                 popUp.style.animation = `fade-to-top ${popUpTimer}s ease-out`;
                 popUp.style.top = e.pageY;
                 popUp.style.left = e.pageX;
-                console.log(e)
                 document.querySelector('.page').insertAdjacentElement('beforeEnd',popUp);
                 setTimeout(()=>popUp.remove(),popUpTimer*1000)
             })    
