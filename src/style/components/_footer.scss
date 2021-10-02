@@ -1,25 +1,41 @@
 .footer {
-    grid-row: footer-separator / full-end;
-    grid-column: content-start / content-end;
-    font-size: 1.2rem;
-    position: relative;
-  
-    &__links {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  
-    &__link-text {
-      padding: 1rem;
-      margin: 1rem;
-      cursor: pointer;
-      color: $dark;
-      &:hover{
-        color:$darkest;
-      }
-      &::selection{
-        background: transparent;
-      }
+  grid-row: footer-separator / full-end;
+  grid-column: content-start / content-end;
+  font-size: 1.2rem;
+  position: relative;
+
+  &__links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include respond-to($bp-small) {
+      margin: 0 1rem;
     }
   }
+
+  &__link-text {
+    padding: 1rem;
+    margin: 1rem;
+    cursor: pointer;
+    color: $dark;
+    text-align: center;
+    line-height: 1.2;
+    &:hover {
+      color: $darkest;
+    }
+    &::selection {
+      background: transparent;
+    }
+    @include respond-to($bp-small) {
+      margin: 1rem 0;
+    }
+  }
+
+  &__text {
+    display: block;
+    color: $dark;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+  }
+}

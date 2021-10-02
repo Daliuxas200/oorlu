@@ -1,0 +1,16 @@
+.fof h1 {
+  font-size: 4rem;
+  color: #56556e;
+  display: inline-block;
+  padding-right: 12px;
+  animation: type 0.5s alternate infinite;
+}
+
+@keyframes type {
+  0% {
+    box-shadow: inset -3px 0px 0px #888;
+  }
+  100% {
+    box-shadow: inset -3px 0px 0px transparent;
+  }
+}
