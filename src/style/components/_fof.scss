@@ -1,9 +1,28 @@
-.fof h1 {
-  font-size: 4rem;
-  color: #56556e;
-  display: inline-block;
-  padding-right: 12px;
-  animation: type 0.5s alternate infinite;
+.fof {
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  grid-template-rows: 1fr 100px;
+  justify-content: center;
+  align-items: center;
+  & h1 {
+    font-size: 4rem;
+    color: #56556e;
+    padding-right: 12px;
+    animation: type 0.5s alternate infinite;
+    grid-row: 1/3;
+    margin: auto;
+    display: block;
+    @include respond-to($bp-small) {
+      font-size: 2rem;
+      animation: type-small 0.5s alternate infinite;
+    }
+  }
+  & a {
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+  }
 }
 
 @keyframes type {
@@ -12,5 +31,14 @@
   }
   100% {
     box-shadow: inset -3px 0px 0px transparent;
+  }
+}
+
+@keyframes type-small {
+  0% {
+    box-shadow: inset -2px 0px 0px #888;
+  }
+  100% {
+    box-shadow: inset 2px 0px 0px transparent;
   }
 }

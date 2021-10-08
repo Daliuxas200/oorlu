@@ -3,6 +3,7 @@
   grid-column: content-start / content-end;
   font-size: 1.2rem;
   position: relative;
+  padding-bottom: 2rem;
 
   &__links {
     display: flex;
@@ -35,7 +36,6 @@
     display: block;
     color: $dark;
     text-align: center;
-    margin-bottom: 2rem;
     padding: 0 1rem;
   }
 }

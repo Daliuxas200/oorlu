@@ -23,6 +23,32 @@
       </main>
 
       <footer class="footer">
+        <div
+          id="cookies-eu-banner"
+          class="cookies-banner"
+          style="display: none"
+        >
+          <p class="footer__text">
+            I accept the use of cookies by Google Analytics for statistical
+            purposes.
+          </p>
+          <div class="cookies-banner__buttons">
+            <a
+              href="#"
+              style="text-transform: none"
+              id="cookies-eu-accept"
+              class="footer__link-text"
+              >Accept</a
+            ><a
+              href="#"
+              style="text-transform: none"
+              id="cookies-eu-reject"
+              class="footer__link-text"
+              >Reject</a
+            >
+          </div>
+        </div>
+
         <nav>
           <ul class="footer__links">
             <li class="footer__link-text" id="about-button">About</li>
@@ -32,9 +58,11 @@
             </li>
           </ul>
         </nav>
+
         <p class="footer__text">
           © 2021 oor.lu Handmade in LT, Kaunas. All rights reserved
         </p>
+
         <div class="modal" id="about-modal">
           <div class="modal__header">
             <h4 class="modal__title">About oor.lu - free url shortener.</h4>
@@ -228,5 +256,40 @@
         </div>
       </footer>
     </div>
+    <script src="static/cookies-eu-banner.min.js"></script>
+    <script>
+      new CookiesEuBanner(function () {
+        (function (i, s, o, g, r, a, m) {
+          i["GoogleAnalyticsObject"] = r;
+          (i[r] =
+            i[r] ||
+            function () {
+              (i[r].q = i[r].q || []).push(arguments);
+            }),
+            (i[r].l = 1 * new Date());
+          (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+          a.async = 1;
+          a.src = g;
+          m.parentNode.insertBefore(a, m);
+        })(
+          window,
+          document,
+          "script",
+          "https://www.googletagmanager.com/gtag/js?id=G-CV4F052XKL",
+          "gtag"
+        );
+
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag("consent", "update", {
+          analytics_storage: "granted",
+        });
+        gtag("js", new Date());
+        gtag("config", "G-CV4F052XKL");
+      });
+    </script>
   </body>
 </html>
